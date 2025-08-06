@@ -4,13 +4,6 @@
 
 This repository contains a collection of SDL3 tutorials that serve as my personal learning implementation while studying SDL3 (Simple DirectMedia Layer 3) programming concepts. These tutorials represent my own interpretation and implementation of fundamental SDL3 concepts.
 
-## Learning Reference
-
-While learning SDL3, I referenced the educational content structure from Lazy Foo' Productions to understand core concepts:
-- **Reference Website**: [https://lazyfoo.net/tutorials/SDL3/index.php](https://lazyfoo.net/tutorials/SDL3/index.php)
-
-**Important Note**: This repository contains my own original code implementation and interpretation of SDL3 concepts. No source code, assets, or copyrighted material from Lazy Foo' Productions has been redistributed or included in this project.
-
 ## About SDL3
 
 SDL3 is a cross-platform development library designed to provide low level access to audio, keyboard, mouse, joystick, and graphics hardware via OpenGL and Direct3D. It is used by video playback software, emulators, and popular games including Valve's award-winning catalog.
@@ -105,11 +98,13 @@ Each tutorial builds upon concepts from previous ones, creating a solid foundati
 ## Assets and Resources
 
 The `assets/` directory contains original and free-licensed media files created specifically for this project:
-- `hello-world.bmp` - Original bitmap image for basic loading
-- `texture.png` - Original default texture for rendering examples
-- `arrow-up.png`, `arrow-down.png`, `arrow-left.png`, `arrow-right.png` - Original directional arrow sprites
-- `background.png` - Original background image for layering demos
-- `foreground.png` - Original sprite with transparent areas for color keying
+- `01hello-world.bmp` - Original bitmap image for tutorial 01 basic loading
+- `02img.png` - Original texture for tutorial 02 rendering examples
+- `03img.png` - Original default texture for tutorial 03
+- `03up.png`, `03down.png`, `03left.png`, `03right.png` - Original directional arrow sprites for keyboard input
+- `04background0.png` - Original background layer 0 for tutorial 04
+- `04background1.png` - Original background layer 1 for tutorial 04  
+- `04sprite.png` - Original sprite with transparent areas for color keying tutorial
 
 **All graphical assets in this project are either original creations or sourced from free-licensed resources. No copyrighted material from external tutorials has been included.**
 
@@ -142,5 +137,22 @@ This repository represents my personal learning journey with SDL3. If you find t
 1. Feel free to use it as a reference for your own implementations
 2. All code and assets are provided as educational examples
 3. Consider creating your own interpretations of the concepts
+
+## Learning Reference
+
+While learning SDL3, I referenced the educational content structure from Lazy Foo' Productions to understand core concepts:
+- **Reference Website**: [https://lazyfoo.net/tutorials/SDL3/index.php](https://lazyfoo.net/tutorials/SDL3/index.php)
+
+**Important Note**: This repository contains my own original code implementation and interpretation of SDL3 concepts. No source code, assets, or copyrighted material from Lazy Foo' Productions has been redistributed or included in this project.
+
+## License and Attribution
+
+This project represents my personal learning implementation of SDL3 concepts:
+
+- **Implementation**: Original code and interpretation by Giuseppe
+- **Assets**: Original creations and free-licensed resources
+- **Learning Reference**: Concepts studied from various SDL3 educational resources
+
+**No copyrighted material, source code, or assets from Lazy Foo' Productions or other tutorial sources have been redistributed in this repository.**
 
 Happy coding with SDL3! 🎮

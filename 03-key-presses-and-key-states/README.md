@@ -1,15 +1,5 @@
 # SDL3 Tutorial 03: Key Presses and Key States
 
-## Learning Reference and Attribution
-
-This tutorial represents my personal implementation and interpretation of SDL3 concepts. While learning SDL3, I referenced educational content from Lazy Foo' Productions to understand core programming concepts, but this project contains:
-
-- **Original Code**: My own implementation and interpretation of SDL3 concepts
-- **Original Assets**: All graphical resources are either my original creations or sourced from free-licensed materials
-- **No Redistribution**: No source code, assets, or copyrighted material from Lazy Foo' Productions has been included
-
-**All images and resources in this project are original creations or free-licensed materials. No copyrighted images from external tutorials have been used.**
-
 ## Overview
 
 This tutorial demonstrates how to handle keyboard input in SDL3 using key press events. The program creates a window that displays different textures based on which arrow key is pressed by the user.
@@ -32,13 +22,13 @@ This tutorial demonstrates how to handle keyboard input in SDL3 using key press 
 
 ### Keyboard Event Handling
 The program responds to the following keys:
-- **UP Arrow**: Displays `arrow-up.png`
-- **DOWN Arrow**: Displays `arrow-down.png` 
-- **LEFT Arrow**: Displays `arrow-left.png`
-- **RIGHT Arrow**: Displays `arrow-right.png`
+- **UP Arrow**: Displays `03up.png`
+- **DOWN Arrow**: Displays `03down.png` 
+- **LEFT Arrow**: Displays `03left.png`
+- **RIGHT Arrow**: Displays `03right.png`
 
 ### Default State
-- Shows `texture.png` when the program starts
+- Shows `03img.png` when the program starts
 - Centers all textures on the screen
 - Uses a white background
 
@@ -61,11 +51,11 @@ The program responds to the following keys:
 ## Required Assets
 
 The program expects the following original image files in the `../assets/` directory:
-- `texture.png` - Default texture shown at startup
-- `arrow-up.png` - Texture shown when UP arrow is pressed
-- `arrow-down.png` - Texture shown when DOWN arrow is pressed
-- `arrow-left.png` - Texture shown when LEFT arrow is pressed
-- `arrow-right.png` - Texture shown when RIGHT arrow is pressed
+- `03img.png` - Default texture shown at startup
+- `03up.png` - Texture shown when UP arrow is pressed
+- `03down.png` - Texture shown when DOWN arrow is pressed
+- `03left.png` - Texture shown when LEFT arrow is pressed
+- `03right.png` - Texture shown when RIGHT arrow is pressed
 
 ## Key Code Concepts
 
@@ -133,12 +123,12 @@ cd ..
 
 When run successfully, the application will:
 1. Create a 640x480 window titled "SDL3 Tutorial: Key Presses and Key States"
-2. Display the default texture (`texture.png`) centered on a white background
+2. Display the default texture (`03img.png`) centered on a white background
 3. Change the displayed image when arrow keys are pressed:
-   - UP arrow → `arrow-up.png`
-   - DOWN arrow → `arrow-down.png`
-   - LEFT arrow → `arrow-left.png`
-   - RIGHT arrow → `arrow-right.png`
+   - UP arrow → `03up.png`
+   - DOWN arrow → `03down.png`
+   - LEFT arrow → `03left.png`
+   - RIGHT arrow → `03right.png`
 4. Handle window close events to exit gracefully
 
 ## Next Steps
@@ -156,6 +146,16 @@ The next tutorial might cover more advanced input handling, animation, or game l
 - SDL3 (Simple DirectMedia Layer 3)
 - SDL3_image extension library
 - Standard C++ library
+
+## Learning Reference and Attribution
+
+This tutorial represents my personal implementation and interpretation of SDL3 concepts. While learning SDL3, I referenced educational content from Lazy Foo' Productions to understand core programming concepts, but this project contains:
+
+- **Original Code**: My own implementation and interpretation of SDL3 concepts
+- **Original Assets**: All graphical resources are either my original creations or sourced from free-licensed materials
+- **No Redistribution**: No source code, assets, or copyrighted material from Lazy Foo' Productions has been included
+
+**All images and resources in this project are original creations or free-licensed materials. No copyrighted images from external tutorials have been used.**
 
 ## License
 

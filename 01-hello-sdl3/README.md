@@ -2,16 +2,6 @@
 
 A basic SDL3 application that demonstrates fundamental graphics programming concepts including window creation, surface manipulation, image loading, and event handling.
 
-## Learning Reference and Attribution
-
-This tutorial represents my personal implementation and interpretation of SDL3 concepts. While learning SDL3, I referenced educational content from Lazy Foo' Productions to understand core programming concepts, but this project contains:
-
-- **Original Code**: My own implementation and interpretation of SDL3 concepts
-- **Original Assets**: All graphical resources are either my original creations or sourced from free-licensed materials
-- **No Redistribution**: No source code, assets, or copyrighted material from Lazy Foo' Productions has been included
-
-**All images and resources in this project are original creations or free-licensed materials. No copyrighted images from external tutorials have been used.**
-
 ## Overview
 
 This project creates a simple SDL3 application that:
@@ -52,7 +42,7 @@ This project creates a simple SDL3 application that:
 ## Assets
 
 This tutorial uses the following original asset from the shared assets directory:
-- `../assets/hello-world.bmp` - Original bitmap image created specifically for this project
+- `../assets/01hello-world.bmp` - Original bitmap image created specifically for this project
 
 ## Building
 
@@ -69,7 +59,7 @@ g++ -std=c++17 01-main.cpp -I../lib/SDL3-3.2.18/x86_64-w64-mingw32/include -L../
 ## Running
 
 1. Ensure `SDL3.dll` is in the same directory as the executable
-2. Ensure the asset `hello-world.bmp` is available at `../assets/hello-world.bmp` (relative to executable)
+2. Ensure the asset `01hello-world.bmp` is available at `../assets/01hello-world.bmp` (relative to executable)
 3. Run the executable:
    ```bash
    ./main.exe
@@ -145,6 +135,16 @@ This basic example can be extended to include:
 
 - SDL3 (Simple DirectMedia Layer 3)
 - Standard C++ library
+
+## Learning Reference and Attribution
+
+This tutorial represents my personal implementation and interpretation of SDL3 concepts. While learning SDL3, I referenced educational content from Lazy Foo' Productions to understand core programming concepts, but this project contains:
+
+- **Original Code**: My own implementation and interpretation of SDL3 concepts
+- **Original Assets**: All graphical resources are either my original creations or sourced from free-licensed materials
+- **No Redistribution**: No source code, assets, or copyrighted material from Lazy Foo' Productions has been included
+
+**All images and resources in this project are original creations or free-licensed materials. No copyrighted images from external tutorials have been used.**
 
 ## License
 

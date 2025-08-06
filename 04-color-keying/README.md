@@ -1,15 +1,5 @@
 # SDL3 Tutorial 04: Color Keying
 
-## Learning Reference and Attribution
-
-This tutorial represents my personal implementation and interpretation of SDL3 concepts. While learning SDL3, I referenced educational content from Lazy Foo' Productions to understand core programming concepts, but this project contains:
-
-- **Original Code**: My own implementation and interpretation of SDL3 concepts
-- **Original Assets**: All graphical resources are either my original creations or sourced from free-licensed materials
-- **No Redistribution**: No source code, assets, or copyrighted material from Lazy Foo' Productions has been included
-
-**All images and resources in this project are original creations or free-licensed materials. No copyrighted images from external tutorials have been used.**
-
 ## Overview
 
 This tutorial demonstrates **color keying** (also known as chroma keying) in SDL3. Color keying is a technique that makes specific colors in an image transparent, allowing for layered rendering without visible backgrounds. This is commonly used for sprites and characters in games.
@@ -30,8 +20,8 @@ This tutorial demonstrates **color keying** (also known as chroma keying) in SDL
 
 ### Dual Texture System
 The program uses two textures:
-- **Background Texture** (`background.png`): Rendered at position (0, 0) covering the entire screen
-- **Foreground Texture** (`foreground.png`): Rendered at the center of the screen with transparent cyan areas
+- **Background Texture** (`04background0.png`): Rendered at position (0, 0) covering the entire screen
+- **Foreground Texture** (`04sprite.png`): Rendered at the center of the screen with transparent cyan areas
 
 ### Enhanced MTexture Class
 The custom `MTexture` class now includes:
@@ -58,8 +48,8 @@ The custom `MTexture` class now includes:
 ## Required Assets
 
 The program expects the following original image files in the `../assets/` directory:
-- `background.png` - Original background image that fills the entire screen
-- `foreground.png` - Original foreground sprite with cyan areas that will become transparent
+- `04background0.png` - Original background image that fills the entire screen
+- `04sprite.png` - Original foreground sprite with cyan areas that will become transparent
 
 ## Technical Implementation
 
@@ -166,6 +156,16 @@ The next tutorial might cover animation, sprite sheets, or more advanced renderi
 - SDL3 (Simple DirectMedia Layer 3)
 - SDL3_image extension library
 - Standard C++ library
+
+## Learning Reference and Attribution
+
+This tutorial represents my personal implementation and interpretation of SDL3 concepts. While learning SDL3, I referenced educational content from Lazy Foo' Productions to understand core programming concepts, but this project contains:
+
+- **Original Code**: My own implementation and interpretation of SDL3 concepts
+- **Original Assets**: All graphical resources are either my original creations or sourced from free-licensed materials
+- **No Redistribution**: No source code, assets, or copyrighted material from Lazy Foo' Productions has been included
+
+**All images and resources in this project are original creations or free-licensed materials. No copyrighted images from external tutorials have been used.**
 
 ## License
 
