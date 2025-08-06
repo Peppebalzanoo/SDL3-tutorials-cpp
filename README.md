@@ -12,8 +12,6 @@ SDL3 is a cross-platform development library designed to provide low level acces
 
 This repository is organized with each tutorial in its own directory:
 
-This repository is organized with each tutorial in its own directory:
-
 ```
 SDL3 Project/
 ├── 01-sdl-basics/                     # Basic SDL3 window creation and BMP loading
@@ -130,6 +128,13 @@ This repository represents my personal learning journey with SDL3. If you find t
 1. Feel free to use it as a reference for your own implementations
 2. All code and assets are provided as educational examples
 3. Consider creating your own interpretations of the concepts
+
+
+## License Notice for SDL3
+
+SDL3 and SDL3_image are © the SDL development team and licensed under the zlib license.  
+These libraries are included in the `lib/` directory for development convenience.  
+A copy of the license is provided in the `COPYING.txt` file as required.
 
 ## Learning Reference
 
