@@ -1,10 +1,13 @@
 #include "MTexture.hpp"
 #include <iostream>
 
+
+// Constants for screen dimensions and window title
 constexpr int SCREEN_WIDTH{640};
 constexpr int SCREEN_HEIGHT{480};
-constexpr const char *WINDOW_TITLE{"SDL3 Tutorial: Key Presses and Key States"};
+constexpr const char *WINDOW_TITLE{"SDL3 Tutorial: Key Presses and Key States Example"};
 
+// Function to initialize SDL and create a window
 bool init(SDL_Window *&pWindow, SDL_Renderer *&pRenderer)
 {
     // Initialize SDL3
@@ -27,6 +30,7 @@ bool init(SDL_Window *&pWindow, SDL_Renderer *&pRenderer)
     return true; // Return success
 }
 
+// Function to clean up SDL resources
 void cleanup(SDL_Window *&pWindow, SDL_Renderer *&pRenderer, MTexture *texture)
 {
 
@@ -51,33 +55,34 @@ void cleanup(SDL_Window *&pWindow, SDL_Renderer *&pRenderer, MTexture *texture)
     texture = nullptr;
 }
 
+// Function to load media resources (images, sounds, etc.)
 bool loadMedia(MTexture &texture, SDL_Renderer *&pRenderer, SDL_Keycode &key_code)
 {
     bool success{true};
 
     if (key_code == SDLK_UP)
-        if (texture.loadTexture("../assets/up.png", pRenderer) == false)
+        if (texture.loadTexture("../assets/03up.png", pRenderer) == false)
         {
             SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to load up texture!\n");
             success = false;
         }
 
     if (key_code == SDLK_DOWN)
-        if (texture.loadTexture("../assets/down.png", pRenderer) == false)
+        if (texture.loadTexture("../assets/03down.png", pRenderer) == false)
         {
             SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to load down texture!\n");
             success = false;
         }
 
     if (key_code == SDLK_LEFT)
-        if (texture.loadTexture("../assets/left.png", pRenderer) == false)
+        if (texture.loadTexture("../assets/03left.png", pRenderer) == false)
         {
             SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to load left texture!\n");
             success = false;
         }
 
     if (key_code == SDLK_RIGHT)
-        if (texture.loadTexture("../assets/right.png", pRenderer) == false)
+        if (texture.loadTexture("../assets/03right.png", pRenderer) == false)
         {
             SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to load right texture!\n");
             success = false;
@@ -86,13 +91,11 @@ bool loadMedia(MTexture &texture, SDL_Renderer *&pRenderer, SDL_Keycode &key_cod
     return success;
 }
 
-// ############################################################################################
+
 int main()
 {
-    // Declare pointers for the window and surface
+    // Declare pointers for the window and renderer
     SDL_Window *pWindow{nullptr};
-
-    // Renderer used to draw textures to the window
     SDL_Renderer *pRenderer{nullptr};
 
     // The texture to be rendered
@@ -115,17 +118,20 @@ int main()
     SDL_Event event;
     SDL_zero(event); // Initialize the event structure
 
-    // Load the default texture
-    texture.loadTexture("../assets/loaded.png", pRenderer); // Load the default texture
-    // Set the default background color to white
+    // Load the default texture to be rendered
+    texture.loadTexture("../assets/03img.png", pRenderer); 
+
+    // Set the default background color to white (inline color setting)
     SDL_SetRenderDrawColor(pRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
     SDL_RenderClear(pRenderer);
+
     // Render the default texture at the center of the screen
     texture.renderTexture((SCREEN_WIDTH - texture.getWidth()) / 2.0f, (SCREEN_HEIGHT - texture.getHeight()) / 2.0f, pRenderer); // Render the texture at the center of the screen
-    // Present the cleared renderer
-    SDL_RenderPresent(pRenderer); // Present the cleared renderer
+    
+    // Present the rendered content to the window
+    SDL_RenderPresent(pRenderer); 
 
-        // Main loop: keep running until the quit flag is set
+    // Main loop: keep running until the quit flag is set
     while (!quit)
     {
         while (SDL_PollEvent(&event)) // Events Loop: Poll for events

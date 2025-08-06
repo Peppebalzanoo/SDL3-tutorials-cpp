@@ -1,12 +1,11 @@
 #include "MTexture.hpp"
 
-//* Class Implementation *//
 // TextureManager's destructor cleans up the texture resource
 MTexture::~MTexture() { clear(); }
 
 // ############################################################################################
 // TextureManager's loadTexture function loads a texture from a file
-bool MTexture::loadTexture(const std::string &filepath, SDL_Renderer *&renderer)
+bool MTexture::loadTexture(const std::string &filepath, SDL_Renderer *&renderer, bool &remove_background_from_sprite)
 {
     // Clear any existing texture before loading a new one
     this->clear();
@@ -24,32 +23,34 @@ bool MTexture::loadTexture(const std::string &filepath, SDL_Renderer *&renderer)
     {
         SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "Texture loaded successfully from %s.\n", filepath.c_str());
 
-        // Set the color key for the surface to make a specific color transparent: remove cyan (0x00, 0xFF, 0xFF)
-        if (!SDL_SetSurfaceColorKey(loaded_surface, true, SDL_MapSurfaceRGB(loaded_surface, 0x00, 0xFF, 0xFF)))
+        if (remove_background_from_sprite)
         {
-            SDL_LogError(SDL_LOG_CATEGORY_ERROR, "Failed to set color key for surface: %s\n", SDL_GetError());
+            // Set the color key for the surface to make a specific color transparent: remove cyan (0x00, 0xFF, 0xFF)
+            if (!SDL_SetSurfaceColorKey(loaded_surface, true, SDL_MapSurfaceRGB(loaded_surface, 0x00, 0xFF, 0xFF)))
+            {
+                SDL_LogError(SDL_LOG_CATEGORY_ERROR, "Failed to set color key for surface: %s\n", SDL_GetError());
+            }
+            SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "Color key set successfully for surface.\n");
+        }
+
+        // Create a texture from the loaded surface
+        if (texture = SDL_CreateTextureFromSurface(renderer, loaded_surface); texture == nullptr)
+        {
+            SDL_LogError(SDL_LOG_CATEGORY_ERROR, "Failed to create texture from surface: %s\n", SDL_GetError());
+            return false; // Return false if texture creation fails
         }
         else
         {
-            SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "Color key set successfully for surface.\n");
-
-            // Create a texture from the loaded surface
-            if (texture = SDL_CreateTextureFromSurface(renderer, loaded_surface); texture == nullptr)
-            {
-                SDL_LogError(SDL_LOG_CATEGORY_ERROR, "Failed to create texture from surface: %s\n", SDL_GetError());
-                return false; // Return false if texture creation fails
-            }
-            else
-            {
-                // Get the dimensions of the texture
-                this->width = loaded_surface->w;
-                this->height = loaded_surface->h;
-            }
+            SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "Loaded dimensions: %dx%d\n", loaded_surface->w, loaded_surface->h);
+            // Get the dimensions of the texture
+            this->width = loaded_surface->w;
+            this->height = loaded_surface->h;
+            SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "Texture created successfully from surface with dimensions %dx%d.\n", this->width, this->height);
         }
-        // Free the loaded surface as it's no longer needed
-        SDL_DestroySurface(loaded_surface);
-        loaded_surface = nullptr;
     }
+    // Free the loaded surface as it's no longer needed
+    SDL_DestroySurface(loaded_surface);
+    loaded_surface = nullptr;
 
     SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "Texture created successfully with dimensions %dx%d.\n", this->width, this->height);
 

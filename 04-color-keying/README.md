@@ -1,5 +1,15 @@
 # SDL3 Tutorial 04: Color Keying
 
+## Learning Reference and Attribution
+
+This tutorial represents my personal implementation and interpretation of SDL3 concepts. While learning SDL3, I referenced educational content from Lazy Foo' Productions to understand core programming concepts, but this project contains:
+
+- **Original Code**: My own implementation and interpretation of SDL3 concepts
+- **Original Assets**: All graphical resources are either my original creations or sourced from free-licensed materials
+- **No Redistribution**: No source code, assets, or copyrighted material from Lazy Foo' Productions has been included
+
+**All images and resources in this project are original creations or free-licensed materials. No copyrighted images from external tutorials have been used.**
+
 ## Overview
 
 This tutorial demonstrates **color keying** (also known as chroma keying) in SDL3. Color keying is a technique that makes specific colors in an image transparent, allowing for layered rendering without visible backgrounds. This is commonly used for sprites and characters in games.
@@ -21,7 +31,7 @@ This tutorial demonstrates **color keying** (also known as chroma keying) in SDL
 ### Dual Texture System
 The program uses two textures:
 - **Background Texture** (`background.png`): Rendered at position (0, 0) covering the entire screen
-- **Foreground Texture** (`foo.png`): Rendered at the center of the screen with transparent cyan areas
+- **Foreground Texture** (`foreground.png`): Rendered at the center of the screen with transparent cyan areas
 
 ### Enhanced MTexture Class
 The custom `MTexture` class now includes:
@@ -38,13 +48,18 @@ The custom `MTexture` class now includes:
 ├── MTexture.cpp         # Custom texture class implementation (with color keying)
 ├── build.bat            # Build script
 └── README.md            # This file
+
+../                      # Parent directory contains:
+├── main.exe             # Compiled executable (shared across tutorials)
+├── SDL3.dll             # SDL3 runtime library
+└── SDL3_image.dll       # SDL3_image runtime library
 ```
 
 ## Required Assets
 
-The program expects the following image files in the `../assets/` directory:
-- `background.png` - Background image that fills the entire screen
-- `foo.png` - Foreground sprite with cyan areas that will become transparent
+The program expects the following original image files in the `../assets/` directory:
+- `background.png` - Original background image that fills the entire screen
+- `foreground.png` - Original foreground sprite with cyan areas that will become transparent
 
 ## Technical Implementation
 
@@ -79,8 +94,8 @@ SDL_SetSurfaceColorKey(loaded_surface, true, SDL_MapSurfaceRGB(loaded_surface, 0
 bg_texture.renderTexture(0.0f, 0.0f, pRenderer);
 
 // Render foreground on top (top layer with transparency)
-foo_texture.renderTexture((SCREEN_WIDTH - foo_texture.getWidth()) / 2, 
-                         (SCREEN_HEIGHT - foo_texture.getHeight()) / 2, pRenderer);
+foreground_texture.renderTexture((SCREEN_WIDTH - foreground_texture.getWidth()) / 2, 
+                                (SCREEN_HEIGHT - foreground_texture.getHeight()) / 2, pRenderer);
 ```
 
 ## Learning Objectives
@@ -101,10 +116,32 @@ Color keying is essential for:
 
 ## Building and Running
 
-Use the provided `build.bat` script to compile the program. Requirements:
+### Prerequisites
 - SDL3 development libraries
 - SDL3_image extension library
-- A C++ compiler (like MinGW-w64)
+- C++ compiler (MinGW-w64 or Visual Studio)
+
+### Build Instructions
+Use the provided `build.bat` script to compile the program:
+```bash
+./build.bat
+```
+
+Or compile manually:
+```bash
+g++ -I../lib/SDL3-3.2.18/x86_64-w64-mingw32/include \
+    -I../lib/SDL3_image-3.2.4/x86_64-w64-mingw32/include \
+    -L../lib/SDL3-3.2.18/x86_64-w64-mingw32/lib \
+    -L../lib/SDL3_image-3.2.4/x86_64-w64-mingw32/lib \
+    -o ../main.exe 04-main.cpp MTexture.cpp \
+    -lSDL3 -lSDL3_image
+```
+
+### Running
+```bash
+cd ..
+./main.exe
+```
 
 ## Visual Result
 
@@ -123,3 +160,13 @@ This tutorial introduces fundamental concepts for:
 - Professional game graphics pipelines
 
 The next tutorial might cover animation, sprite sheets, or more advanced rendering techniques.
+
+## Dependencies
+
+- SDL3 (Simple DirectMedia Layer 3)
+- SDL3_image extension library
+- Standard C++ library
+
+## License
+
+This is my personal educational project implementing SDL3 concepts. All code and assets are original or free-licensed. Please refer to SDL3's license for library usage terms.

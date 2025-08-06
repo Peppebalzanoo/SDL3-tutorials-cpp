@@ -1,13 +1,13 @@
 #include <iostream>
 #include "MTexture.hpp"
 
-//* Constants *//
+// Constants for screen dimensions and window title
 constexpr int SCREEN_WIDTH = {640};
 constexpr int SCREEN_HEIGHT = {480};
-constexpr const char *WINDOW_TITLE{"SDL3 Tutorial: Textures and Extension Libraries"};
+constexpr const char *WINDOW_TITLE{"SDL3 Tutorial: Textures and Extension Libraries Example"};
 
-// ############################################################################################
-//* Function implementations *//
+
+// Function to initialize SDL and create a window
 bool init(SDL_Window *&window_prt, SDL_Renderer *&renderer)
 {
     // Initialize SDL3
@@ -30,6 +30,7 @@ bool init(SDL_Window *&window_prt, SDL_Renderer *&renderer)
     return true; // Return success
 }
 
+// Function to clean up SDL resources
 void cleanup(SDL_Window *&window, SDL_Renderer *&renderer, MTexture *texture)
 {
 
@@ -54,12 +55,13 @@ void cleanup(SDL_Window *&window, SDL_Renderer *&renderer, MTexture *texture)
     texture = nullptr;
 }
 
+// Function to load media resources (images, sounds, etc.)
 bool loadMedia(MTexture &texture, SDL_Renderer *&renderer)
 {
     bool success{true};
 
     // Load media resources images, sounds, etc.
-    const char *texture_path = "../assets/loaded.png";
+    const char *texture_path = "../assets/02img.png";
 
     // Load the image into a surface
     if (texture.loadTexture(texture_path, renderer) == false)
@@ -75,11 +77,9 @@ bool loadMedia(MTexture &texture, SDL_Renderer *&renderer)
 // ############################################################################################
 int main()
 {
-    // Declare pointers for the window and surface
-    SDL_Window *window_prt{nullptr};
-
-    // Renderer used to draw textures to the window
-    SDL_Renderer *renderer{nullptr};
+    // Declare pointers for the window and renderer
+    SDL_Window *pWindow{nullptr};
+    SDL_Renderer *pRenderer{nullptr};
 
     // The texture to be rendered
     MTexture texture{};
@@ -91,14 +91,14 @@ int main()
     int exit_code = {0};
 
     // Initialize SDL and create a window and get the screen surface
-    if (!init(window_prt, renderer))
+    if (!init(pWindow, pRenderer))
     {
         exit_code = 1; // Exit if initialization fails
         SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "Initialization failed.\n");
     }
 
     // Load media resources
-    if (!loadMedia(texture, renderer))
+    if (!loadMedia(texture, pRenderer))
     {
         exit_code = 2; // Exit if media loading fails
         SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "Media loading failed.\n");
@@ -120,19 +120,19 @@ int main()
             }
         }
 
-        // Fill the background with a white color
-        SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
-        SDL_RenderClear(renderer);
+        // Fill the background with a white color (inline color setting)
+        SDL_SetRenderDrawColor(pRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
+        SDL_RenderClear(pRenderer);
 
         // Render the texture at the center of the screen
-        texture.renderTexture((SCREEN_WIDTH - texture.getWidth()) / 2.0f, (SCREEN_HEIGHT - texture.getHeight()) / 2.0f, renderer);
+        texture.renderTexture((SCREEN_WIDTH - texture.getWidth()) / 2.0f, (SCREEN_HEIGHT - texture.getHeight()) / 2.0f, pRenderer);
 
         // Present the rendered content to the window
-        SDL_RenderPresent(renderer);
+        SDL_RenderPresent(pRenderer);
     }
 
     // Clean up
-    cleanup(window_prt, renderer, &texture);
+    cleanup(pWindow, pRenderer, &texture);
 
     // Return the exit code: 0 for success, non-zero for failure
     return exit_code;

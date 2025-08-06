@@ -1,5 +1,15 @@
 # SDL3 Tutorial: Textures and Extension Libraries
 
+## Learning Reference and Attribution
+
+This tutorial represents my personal implementation and interpretation of SDL3 concepts. While learning SDL3, I referenced educational content from Lazy Foo' Productions to understand core programming concepts, but this project contains:
+
+- **Original Code**: My own implementation and interpretation of SDL3 concepts
+- **Original Assets**: All graphical resources are either my original creations or sourced from free-licensed materials
+- **No Redistribution**: No source code, assets, or copyrighted material from Lazy Foo' Productions has been included
+
+**All images and resources in this project are original creations or free-licensed materials. No copyrighted images from external tutorials have been used.**
+
 ## Overview
 
 This project demonstrates how to work with textures and extension libraries in SDL3. It builds upon basic SDL3 concepts by introducing hardware-accelerated rendering with textures instead of software surfaces, and shows how to use SDL3_image extension library for loading various image formats.
@@ -29,11 +39,18 @@ This project demonstrates how to work with textures and extension libraries in S
 ├── MTexture.hpp         # Custom texture class header
 ├── MTexture.cpp         # Custom texture class implementation
 ├── build.bat            # Build script for Windows
-├── loaded.png           # Sample PNG image to display
-├── main.exe             # Compiled executable
+└── README.md            # This file
+
+../                      # Parent directory contains:
+├── main.exe             # Compiled executable (shared across tutorials)
 ├── SDL3.dll             # SDL3 runtime library
 └── SDL3_image.dll       # SDL3_image runtime library
 ```
+
+## Assets
+
+This tutorial uses the following original asset from the shared assets directory:
+- `../assets/texture.png` - Original PNG image created specifically for this project
 
 ## Code Breakdown
 
@@ -46,7 +63,7 @@ This project demonstrates how to work with textures and extension libraries in S
 
 2. **Media Loading (`loadMedia` function)**:
    - Uses custom `MTexture` class to load PNG image
-   - Loads image from `../assets/loaded.png`
+   - Loads image from `../assets/texture.png`
    - Returns success/failure status
 
 3. **Main Loop**:
@@ -128,3 +145,13 @@ This tutorial provides the foundation for:
 - Multiple texture management
 - Advanced rendering techniques (scaling, rotation, blending)
 - Game object systems with texture components
+
+## Dependencies
+
+- SDL3 (Simple DirectMedia Layer 3)
+- SDL3_image extension library
+- Standard C++ library
+
+## License
+
+This is my personal educational project implementing SDL3 concepts. All code and assets are original or free-licensed. Please refer to SDL3's license

@@ -1,5 +1,15 @@
 # SDL3 Tutorial 03: Key Presses and Key States
 
+## Learning Reference and Attribution
+
+This tutorial represents my personal implementation and interpretation of SDL3 concepts. While learning SDL3, I referenced educational content from Lazy Foo' Productions to understand core programming concepts, but this project contains:
+
+- **Original Code**: My own implementation and interpretation of SDL3 concepts
+- **Original Assets**: All graphical resources are either my original creations or sourced from free-licensed materials
+- **No Redistribution**: No source code, assets, or copyrighted material from Lazy Foo' Productions has been included
+
+**All images and resources in this project are original creations or free-licensed materials. No copyrighted images from external tutorials have been used.**
+
 ## Overview
 
 This tutorial demonstrates how to handle keyboard input in SDL3 using key press events. The program creates a window that displays different textures based on which arrow key is pressed by the user.
@@ -22,13 +32,13 @@ This tutorial demonstrates how to handle keyboard input in SDL3 using key press 
 
 ### Keyboard Event Handling
 The program responds to the following keys:
-- **UP Arrow**: Displays `up.png`
-- **DOWN Arrow**: Displays `down.png` 
-- **LEFT Arrow**: Displays `left.png`
-- **RIGHT Arrow**: Displays `right.png`
+- **UP Arrow**: Displays `arrow-up.png`
+- **DOWN Arrow**: Displays `arrow-down.png` 
+- **LEFT Arrow**: Displays `arrow-left.png`
+- **RIGHT Arrow**: Displays `arrow-right.png`
 
 ### Default State
-- Shows `loaded.png` when the program starts
+- Shows `texture.png` when the program starts
 - Centers all textures on the screen
 - Uses a white background
 
@@ -41,16 +51,21 @@ The program responds to the following keys:
 ├── MTexture.cpp         # Custom texture class implementation
 ├── build.bat            # Build script
 └── README.md            # This file
+
+../                      # Parent directory contains:
+├── main.exe             # Compiled executable (shared across tutorials)
+├── SDL3.dll             # SDL3 runtime library
+└── SDL3_image.dll       # SDL3_image runtime library
 ```
 
 ## Required Assets
 
-The program expects the following image files in the `../assets/` directory:
-- `loaded.png` - Default texture shown at startup
-- `up.png` - Texture shown when UP arrow is pressed
-- `down.png` - Texture shown when DOWN arrow is pressed
-- `left.png` - Texture shown when LEFT arrow is pressed
-- `right.png` - Texture shown when RIGHT arrow is pressed
+The program expects the following original image files in the `../assets/` directory:
+- `texture.png` - Default texture shown at startup
+- `arrow-up.png` - Texture shown when UP arrow is pressed
+- `arrow-down.png` - Texture shown when DOWN arrow is pressed
+- `arrow-left.png` - Texture shown when LEFT arrow is pressed
+- `arrow-right.png` - Texture shown when RIGHT arrow is pressed
 
 ## Key Code Concepts
 
@@ -87,10 +102,44 @@ bool loadMedia(MTexture &texture, SDL_Renderer *&pRenderer, SDL_Keycode &key_cod
 
 ## Building and Running
 
-Use the provided `build.bat` script to compile the program. Make sure you have:
+### Prerequisites
 - SDL3 development libraries
 - SDL3_image extension library
-- A C++ compiler (like MinGW-w64)
+- C++ compiler (MinGW-w64 or Visual Studio)
+
+### Build Instructions
+Use the provided `build.bat` script to compile the program:
+```bash
+./build.bat
+```
+
+Or compile manually:
+```bash
+g++ -I../lib/SDL3-3.2.18/x86_64-w64-mingw32/include \
+    -I../lib/SDL3_image-3.2.4/x86_64-w64-mingw32/include \
+    -L../lib/SDL3-3.2.18/x86_64-w64-mingw32/lib \
+    -L../lib/SDL3_image-3.2.4/x86_64-w64-mingw32/lib \
+    -o ../main.exe 03-main.cpp MTexture.cpp \
+    -lSDL3 -lSDL3_image
+```
+
+### Running
+```bash
+cd ..
+./main.exe
+```
+
+## Expected Behavior
+
+When run successfully, the application will:
+1. Create a 640x480 window titled "SDL3 Tutorial: Key Presses and Key States"
+2. Display the default texture (`texture.png`) centered on a white background
+3. Change the displayed image when arrow keys are pressed:
+   - UP arrow → `arrow-up.png`
+   - DOWN arrow → `arrow-down.png`
+   - LEFT arrow → `arrow-left.png`
+   - RIGHT arrow → `arrow-right.png`
+4. Handle window close events to exit gracefully
 
 ## Next Steps
 
@@ -101,3 +150,13 @@ This tutorial builds upon basic SDL3 concepts and introduces:
 - Object-oriented design with custom classes
 
 The next tutorial might cover more advanced input handling, animation, or game loop concepts.
+
+## Dependencies
+
+- SDL3 (Simple DirectMedia Layer 3)
+- SDL3_image extension library
+- Standard C++ library
+
+## License
+
+This is my personal educational project implementing SDL3 concepts. All code and assets are original or free-licensed. Please refer to SDL3's license for usage rights.

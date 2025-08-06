@@ -7,7 +7,7 @@
 class MTexture
 {
 private:
-    SDL_Texture *texture; // Pointer to the texture object
+    SDL_Texture *texture;   // Pointer to the texture object
     float width;            // Width of the texture
     float height;           // Height of the texture
 
@@ -19,7 +19,7 @@ public:
     ~MTexture();
 
     // Function to load a texture from a file
-    bool loadTexture(const std::string &file_path, SDL_Renderer *&renderer);
+    bool loadTexture(const std::string &file_path, SDL_Renderer *&renderer, bool &remove_background);
 
     // Function to render the texture at a specific position
     void renderTexture(const float x, const float y, SDL_Renderer *&renderer);

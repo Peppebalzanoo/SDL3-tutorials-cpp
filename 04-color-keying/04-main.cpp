@@ -1,10 +1,12 @@
 #include "MTexture.hpp"
 #include <iostream>
 
+// Constants for screen dimensions and window title
 constexpr int SCREEN_WIDTH{640};
 constexpr int SCREEN_HEIGHT{480};
-constexpr const char *WINDOW_TITLE{"SDL3 Tutorial: Key Presses and Key States"};
+constexpr const char *WINDOW_TITLE{"SDL3 Tutorial: Color Keying Example"};
 
+// Function to initialize SDL and create a window
 bool init(SDL_Window *&pWindow, SDL_Renderer *&pRenderer)
 {
     // Initialize SDL3
@@ -27,6 +29,7 @@ bool init(SDL_Window *&pWindow, SDL_Renderer *&pRenderer)
     return true; // Return success
 }
 
+// Function to clean up SDL resources
 void cleanup(SDL_Window *&pWindow, SDL_Renderer *&pRenderer, MTexture *bg_texture, MTexture *foo_texture)
 {
 
@@ -52,37 +55,50 @@ void cleanup(SDL_Window *&pWindow, SDL_Renderer *&pRenderer, MTexture *bg_textur
     bg_texture = nullptr;
 }
 
-bool loadMedia(MTexture &bg_texture, MTexture &foo_texture, SDL_Renderer *&pRenderer)
+// Function to load media resources (images, sounds, etc.)
+bool loadMedia(MTexture &bg_texture, MTexture &foo_texture, SDL_Renderer *&pRenderer, bool &remove_background_from_sprite)
 {
     bool success{true};
 
-    if (!bg_texture.loadTexture("../assets/background.png", pRenderer))
+    if (!remove_background_from_sprite)
     {
-        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to load background texture!\n");
-        success = false;
+        if (!bg_texture.loadTexture("../assets/04background0.png", pRenderer, remove_background_from_sprite))
+        {
+            SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to load background texture!\n");
+            success = false;
+        }
+    }
+    else
+    {
+        // Change background texture if remove_background_from_sprite is true.
+        // New texture without text: "Press a key to remove background from sprite"
+        if (!bg_texture.loadTexture("../assets/04background1.png", pRenderer, remove_background_from_sprite))
+        {
+            SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to load background texture with color key!\n");
+            success = false;
+        }
     }
 
-    if (!foo_texture.loadTexture("../assets/foo.png", pRenderer))
+    if (!foo_texture.loadTexture("../assets/04sprite.png", pRenderer, remove_background_from_sprite))
     {
-        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to load foo texture!\n");
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to load sprite texture!\n");
         success = false;
     }
 
     return success;
 }
 
-// ############################################################################################
 int main()
 {
-    SDL_Window *pWindow{nullptr};     // Declare pointers for the window and surface
-    SDL_Renderer *pRenderer{nullptr}; // Renderer used to draw textures to the window
+    // Declare pointers for the window and renderer
+    SDL_Window *pWindow{nullptr};
+    SDL_Renderer *pRenderer{nullptr};
 
     // The texture to be rendered
     MTexture bg_texture{};
     MTexture foo_texture{};
 
     bool quit = {false}; // Flag to indicate when the application should exit
-
     int exit_code = {0}; // Exit code
 
     // Initialize SDL and create a window and get the screen surface
@@ -96,6 +112,8 @@ int main()
     SDL_Event event;
     SDL_zero(event); // Initialize the event structure
 
+    bool remove_background_from_sprite = false; // Flag to indicate if the background should be removed
+
     // Main loop: keep running until the quit flag is set
     while (!quit)
     {
@@ -106,24 +124,26 @@ int main()
             {
                 quit = true; // Set the quit flag to true
             }
-            // Check if a key is pressed
             else
             {
-                SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "Key pressed: %s\n", SDL_GetKeyName(event.key.key));
+                if (event.type == SDL_EVENT_KEY_DOWN) // Check if a key is pressed
+                {
+                    remove_background_from_sprite = true; // Set the flag to remove background
+                }
 
                 // Set the texture based on the key pressed
-                if (!loadMedia(bg_texture, foo_texture, pRenderer))
+                if (!loadMedia(bg_texture, foo_texture, pRenderer, remove_background_from_sprite))
                 {
                     exit_code = 2; // Exit if media loading fails
                     SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "Media loading failed.\n");
                 }
 
-                // Set the default background color to white
+                // Set the default background color to white (inline color setting)
                 SDL_SetRenderDrawColor(pRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
                 SDL_RenderClear(pRenderer);
 
                 // Render the texture at the center of the screen
-                bg_texture.renderTexture(0.0f, 0.0f, pRenderer);
+                bg_texture.renderTexture(0, 0, pRenderer);
                 foo_texture.renderTexture((SCREEN_WIDTH - foo_texture.getWidth()) / 2, (SCREEN_HEIGHT - foo_texture.getHeight()) / 2, pRenderer);
 
                 // Present the rendered content to the window

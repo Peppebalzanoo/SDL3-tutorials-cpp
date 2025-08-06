@@ -2,13 +2,14 @@
 
 ## Overview
 
-This repository contains a collection of SDL3 tutorials based on the excellent work by **Lazy Foo' Productions**. These tutorials provide a comprehensive introduction to SDL3 (Simple DirectMedia Layer 3) programming in C++.
+This repository contains a collection of SDL3 tutorials that serve as my personal learning implementation while studying SDL3 (Simple DirectMedia Layer 3) programming concepts. These tutorials represent my own interpretation and implementation of fundamental SDL3 concepts.
 
-## Original Source
+## Learning Reference
 
-The tutorials are adapted from the official SDL3 tutorial series by Lazy Foo' Productions:
-- **Website**: [https://lazyfoo.net/tutorials/SDL3/index.php](https://lazyfoo.net/tutorials/SDL3/index.php)
-- **Copyright**: Lazy Foo' Productions 2004-2025
+While learning SDL3, I referenced the educational content structure from Lazy Foo' Productions to understand core concepts:
+- **Reference Website**: [https://lazyfoo.net/tutorials/SDL3/index.php](https://lazyfoo.net/tutorials/SDL3/index.php)
+
+**Important Note**: This repository contains my own original code implementation and interpretation of SDL3 concepts. No source code, assets, or copyrighted material from Lazy Foo' Productions has been redistributed or included in this project.
 
 ## About SDL3
 
@@ -24,8 +25,19 @@ SDL3 Project/
 ├── 02-textures-and-extension-libraries/ # Working with textures and SDL3_image
 ├── 03-key-presses-and-key-states/     # Keyboard input handling
 ├── 04-color-keying/                   # Transparency and color keying
-├── assets/                            # Shared image and media files
+├── assets/                            # Original and free-licensed media files
+│   ├── hello-world.bmp                # Original bitmap for tutorial 01
+│   ├── texture.png                    # Original texture for tutorial 02
+│   ├── arrow-up.png                   # Original directional sprites
+│   ├── arrow-down.png                 
+│   ├── arrow-left.png                 
+│   ├── arrow-right.png                
+│   ├── background.png                 # Original background image
+│   └── foreground.png                 # Original sprite with transparency
 ├── lib/                               # SDL3 and SDL3_image libraries
+│   ├── SDL3-3.2.18/                   # SDL3 development libraries
+│   └── SDL3_image-3.2.4/              # SDL3_image extension libraries
+├── .gitignore                         # Git ignore file
 └── README.md                          # This file
 ```
 
@@ -92,19 +104,24 @@ Each tutorial builds upon concepts from previous ones, creating a solid foundati
 
 ## Assets and Resources
 
-The `assets/` directory contains shared media files used across tutorials:
-- `hello-sdl3.bmp` - Basic bitmap image
-- `loaded.png` - Default texture
-- `up.png`, `down.png`, `left.png`, `right.png` - Directional sprites
-- `background.png` - Background image for layering
-- `foo.png` - Sprite with transparent areas
+The `assets/` directory contains original and free-licensed media files created specifically for this project:
+- `hello-world.bmp` - Original bitmap image for basic loading
+- `texture.png` - Original default texture for rendering examples
+- `arrow-up.png`, `arrow-down.png`, `arrow-left.png`, `arrow-right.png` - Original directional arrow sprites
+- `background.png` - Original background image for layering demos
+- `foreground.png` - Original sprite with transparent areas for color keying
+
+**All graphical assets in this project are either original creations or sourced from free-licensed resources. No copyrighted material from external tutorials has been included.**
 
 ## License and Attribution
 
-This tutorial collection is based on the work of **Lazy Foo' Productions**. The original tutorials are copyrighted material and this repository serves as a learning implementation following their educational content.
+This project represents my personal learning implementation of SDL3 concepts:
 
-- **Original Tutorials**: © Lazy Foo' Productions 2004-2025
-- **Implementation**: Educational use following tutorial guidelines
+- **Implementation**: Original code and interpretation by Giuseppe
+- **Assets**: Original creations and free-licensed resources
+- **Learning Reference**: Concepts studied from various SDL3 educational resources
+
+**No copyrighted material, source code, or assets from Lazy Foo' Productions or other tutorial sources have been redistributed in this repository.**
 
 ## Getting Started
 
@@ -117,14 +134,13 @@ This tutorial collection is based on the work of **Lazy Foo' Productions**. The 
 ## Additional Resources
 
 - **Official SDL3 Documentation**: [SDL3 Wiki](https://wiki.libsdl.org/SDL3/)
-- **Lazy Foo' Productions**: [Original Tutorial Site](https://lazyfoo.net/)
 - **SDL3 GitHub**: [SDL3 Source Code](https://github.com/libsdl-org/SDL)
 
 ## Contributing
 
-This repository is for educational purposes. If you find issues or improvements:
-1. Refer to the original Lazy Foo' tutorials first
-2. Test your changes thoroughly
-3. Ensure compatibility with the tutorial progression
+This repository represents my personal learning journey with SDL3. If you find this helpful for your own learning:
+1. Feel free to use it as a reference for your own implementations
+2. All code and assets are provided as educational examples
+3. Consider creating your own interpretations of the concepts
 
 Happy coding with SDL3! 🎮

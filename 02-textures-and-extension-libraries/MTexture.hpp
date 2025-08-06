@@ -7,7 +7,7 @@
 class MTexture
 {
 private:
-    SDL_Texture *texture; // Pointer to the texture object
+    SDL_Texture *texture;   // Pointer to the texture object
     float width;            // Width of the texture
     float height;           // Height of the texture
 

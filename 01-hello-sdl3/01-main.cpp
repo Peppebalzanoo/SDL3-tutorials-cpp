@@ -3,12 +3,12 @@
 #include <string>
 #include <iostream>
 
-//* Constants *//
+// Constants for screen dimensions and window title
 constexpr int SCREEN_WIDTH = {640};
 constexpr int SCREEN_HEIGHT = {480};
-constexpr const char *WINDOW_TITLE{"SDL3 Tutorial: Hello SDL3"};
+constexpr const char *WINDOW_TITLE{"SDL3 Tutorial: Hello SDL3 Example"};
 
-//* Function implementations *//
+// Function to initialize SDL and create a window
 bool init(SDL_Window *&window_prt, SDL_Surface *&screen_surface)
 {
     // Initialize SDL3
@@ -41,6 +41,7 @@ bool init(SDL_Window *&window_prt, SDL_Surface *&screen_surface)
     return true; // Return success
 }
 
+// Function to clean up SDL resources
 void cleanup(SDL_Window *&window, SDL_Surface *&screen_surface, SDL_Surface *&image_surface)
 {
     // Destroy the window surface
@@ -65,12 +66,13 @@ void cleanup(SDL_Window *&window, SDL_Surface *&screen_surface, SDL_Surface *&im
     image_surface = nullptr;
 }
 
+// Function to load media resources (images, sounds, etc.)
 bool loadMedia(SDL_Surface *&image_surface)
 {
     bool success{true};
 
     // Load media resources images, sounds, etc.
-    const char *image_path = "../assets/hello-sdl3.bmp";
+    const char *image_path = "../assets/hello-world.bmp";
 
     // Load the image into a surface
     if (image_surface = SDL_LoadBMP(image_path); image_surface == nullptr)
@@ -82,13 +84,17 @@ bool loadMedia(SDL_Surface *&image_surface)
     return success;
 }
 
+
 int main()
 {
 
     // Declare pointers for the window and surface
-    SDL_Window *window_prt{nullptr};
-    SDL_Surface *screen_surface{nullptr};
-    SDL_Surface *image_surface{nullptr};
+    SDL_Window *pWindow{nullptr};
+    SDL_Surface *pScreenSurface{nullptr};
+    SDL_Surface *pImageSurface{nullptr};
+
+    // Define the destination rectangle for rendering the image scaled
+    SDL_Rect destination_rect{0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
 
     // Flag to indicate when the application should exit
     bool quit = {false};
@@ -97,14 +103,14 @@ int main()
     int exit_code = {0};
 
     // Initialize SDL and create a window and get the screen surface
-    if (!init(window_prt, screen_surface))
+    if (!init(pWindow, pScreenSurface))
     {
         exit_code = 1; // Exit if initialization fails
         SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "Initialization failed.\n");
     }
 
     // Load media resources
-    if (!loadMedia(image_surface))
+    if (!loadMedia(pImageSurface))
     {
         exit_code = 2; // Exit if media loading fails
         SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "Media loading failed.\n");
@@ -126,18 +132,21 @@ int main()
             }
         }
 
-        // Fill the screen surface with a color (white in this case)
-        SDL_FillSurfaceRect(screen_surface, nullptr, SDL_MapSurfaceRGB(screen_surface, 0xFF, 0xFF, 0xFF));
+        // Definition of the color to fill the screen (white in this case)
+        SDL_Color white_color{255, 255, 255, 255}; 
+        
+        // Fill the screen surface with a color 
+        SDL_FillSurfaceRect(pScreenSurface, nullptr, SDL_MapSurfaceRGB(pScreenSurface, white_color.r, white_color.g, white_color.b));
 
-        // Render the image on the screen surface
-        SDL_BlitSurface(image_surface, nullptr, screen_surface, nullptr);
+        // Render the image surface onto the screen surface with scaling
+        SDL_BlitSurfaceScaled(pImageSurface, nullptr, pScreenSurface, &destination_rect, SDL_SCALEMODE_LINEAR);
 
         // Update the window surface to reflect changes
-        SDL_UpdateWindowSurface(window_prt);
+        SDL_UpdateWindowSurface(pWindow);
     }
 
     // Clean up
-    cleanup(window_prt, screen_surface, image_surface);
+    cleanup(pWindow, pScreenSurface, pImageSurface);
 
     // Return the exit code: 0 for success, non-zero for failure
     return exit_code;

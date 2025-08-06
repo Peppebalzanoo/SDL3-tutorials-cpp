@@ -2,6 +2,16 @@
 
 A basic SDL3 application that demonstrates fundamental graphics programming concepts including window creation, surface manipulation, image loading, and event handling.
 
+## Learning Reference and Attribution
+
+This tutorial represents my personal implementation and interpretation of SDL3 concepts. While learning SDL3, I referenced educational content from Lazy Foo' Productions to understand core programming concepts, but this project contains:
+
+- **Original Code**: My own implementation and interpretation of SDL3 concepts
+- **Original Assets**: All graphical resources are either my original creations or sourced from free-licensed materials
+- **No Redistribution**: No source code, assets, or copyrighted material from Lazy Foo' Productions has been included
+
+**All images and resources in this project are original creations or free-licensed materials. No copyrighted images from external tutorials have been used.**
+
 ## Overview
 
 This project creates a simple SDL3 application that:
@@ -31,11 +41,18 @@ This project creates a simple SDL3 application that:
 01-hello-sdl3/
 ├── 01-main.cpp        # Main application source code
 ├── build.bat          # Build script for Windows
-├── hello-sdl3.bmp     # Sample image file
-├── main.exe           # Compiled executable
-├── SDL3.dll           # SDL3 runtime library
 └── README.md          # This file
+
+../                    # Parent directory contains:
+├── main.exe           # Compiled executable (shared across tutorials)
+├── SDL3.dll           # SDL3 runtime library
+└── SDL3_image.dll     # SDL3_image runtime library (if needed)
 ```
+
+## Assets
+
+This tutorial uses the following original asset from the shared assets directory:
+- `../assets/hello-world.bmp` - Original bitmap image created specifically for this project
 
 ## Building
 
@@ -52,7 +69,7 @@ g++ -std=c++17 01-main.cpp -I../lib/SDL3-3.2.18/x86_64-w64-mingw32/include -L../
 ## Running
 
 1. Ensure `SDL3.dll` is in the same directory as the executable
-2. Place your BMP image at `../assets/hello-sdl3.bmp` (relative to executable)
+2. Ensure the asset `hello-world.bmp` is available at `../assets/hello-world.bmp` (relative to executable)
 3. Run the executable:
    ```bash
    ./main.exe
@@ -131,4 +148,4 @@ This basic example can be extended to include:
 
 ## License
 
-This is a tutorial/educational project. Please refer to SDL3's license for library usage terms.
+This is my personal educational project implementing SDL3 concepts. All code and assets are original or free-licensed. Please refer to SDL3's license for library usage terms.
