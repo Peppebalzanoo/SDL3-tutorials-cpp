@@ -6,7 +6,7 @@
 // Constants for screen dimensions and window title
 constexpr int SCREEN_WIDTH = {640};
 constexpr int SCREEN_HEIGHT = {480};
-constexpr const char *WINDOW_TITLE{"SDL3 Tutorial: Hello SDL3 Example"};
+constexpr const char *WINDOW_TITLE{"SDL3 Tutorial 01: Basics Example"};
 
 // Function to initialize SDL and create a window
 bool init(SDL_Window *&window_prt, SDL_Surface *&screen_surface)

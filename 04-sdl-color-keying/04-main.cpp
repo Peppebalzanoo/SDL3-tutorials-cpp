@@ -4,7 +4,7 @@
 // Constants for screen dimensions and window title
 constexpr int SCREEN_WIDTH{640};
 constexpr int SCREEN_HEIGHT{480};
-constexpr const char *WINDOW_TITLE{"SDL3 Tutorial: Color Keying Example"};
+constexpr const char *WINDOW_TITLE{"SDL3 Tutorial 04: Color Keying Example"};
 
 // Function to initialize SDL and create a window
 bool init(SDL_Window *&pWindow, SDL_Renderer *&pRenderer)

@@ -1,4 +1,4 @@
-# SDL3 Tutorial 03: Key Presses and Key States
+# SDL3 Tutorial 03: SDL Event Handling
 
 ## Overview
 
@@ -35,7 +35,7 @@ The program responds to the following keys:
 ## File Structure
 
 ```
-03-key-presses-and-key-states/
+03-sdl-event-handling/
 ├── 03-main.cpp          # Main program file
 ├── MTexture.hpp         # Custom texture class header
 ├── MTexture.cpp         # Custom texture class implementation

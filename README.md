@@ -6,27 +6,30 @@ This repository contains a collection of SDL3 tutorials that serve as my persona
 
 ## About SDL3
 
-SDL3 is a cross-platform development library designed to provide low level access to audio, keyboard, mouse, joystick, and graphics hardware via OpenGL and Direct3D. It is used by video playback software, emulators, and popular games including Valve's award-winning catalog.
+SDL3 is a cross-platform development library designed to provide low level access to audio, keyboard, mouse, joystick, and graphics hardware via OpenGL and Direct3D. It is used by video playbook software, emulators, and popular games including Valve's award-winning catalog.
 
 ## Repository Structure
 
 This repository is organized with each tutorial in its own directory:
 
+This repository is organized with each tutorial in its own directory:
+
 ```
 SDL3 Project/
-├── 01-hello-sdl3/                     # Basic SDL3 window creation and BMP loading
-├── 02-textures-and-extension-libraries/ # Working with textures and SDL3_image
-├── 03-key-presses-and-key-states/     # Keyboard input handling
-├── 04-color-keying/                   # Transparency and color keying
+├── 01-sdl-basics/                     # Basic SDL3 window creation and BMP loading
+├── 02-sdl-textures/                   # Working with textures and SDL3_image
+├── 03-sdl-event-handling/             # Keyboard input handling
+├── 04-sdl-color-keying/               # Transparency and color keying
 ├── assets/                            # Original and free-licensed media files
-│   ├── hello-world.bmp                # Original bitmap for tutorial 01
-│   ├── texture.png                    # Original texture for tutorial 02
-│   ├── arrow-up.png                   # Original directional sprites
-│   ├── arrow-down.png                 
-│   ├── arrow-left.png                 
-│   ├── arrow-right.png                
-│   ├── background.png                 # Original background image
-│   └── foreground.png                 # Original sprite with transparency
+│   ├── 01hello-world.bmp              # Original bitmap for tutorial 01
+│   ├── 02img.png                      # Original texture for tutorial 02
+│   ├── 03img.png                      # Original default texture for tutorial 03
+│   ├── 03up.png                       # Original directional sprites
+│   ├── 03down.png                     
+│   ├── 03left.png                     
+│   ├── 03right.png                    
+│   ├── 04background0.png              # Original background image
+│   └── 04sprite.png                   # Original sprite with transparency
 ├── lib/                               # SDL3 and SDL3_image libraries
 │   ├── SDL3-3.2.18/                   # SDL3 development libraries
 │   └── SDL3_image-3.2.4/              # SDL3_image extension libraries
@@ -36,26 +39,26 @@ SDL3 Project/
 
 ## Tutorial Contents
 
-### Tutorial 01: Hello SDL3
+### Tutorial 01: SDL Basics
 - Basic SDL3 initialization
 - Window creation and management
 - Loading and displaying BMP images
 - Basic event handling
 - Resource cleanup
 
-### Tutorial 02: Textures and Extension Libraries
+### Tutorial 02: SDL Textures
 - Introduction to SDL3_image
 - Loading PNG images
 - Working with textures vs surfaces
 - Renderer-based graphics
 
-### Tutorial 03: Key Presses and Key States
+### Tutorial 03: SDL Event Handling
 - Keyboard event handling
 - Dynamic texture loading based on input
 - Custom texture wrapper class
 - Event-driven programming concepts
 
-### Tutorial 04: Color Keying
+### Tutorial 04: SDL Color Keying
 - Transparency implementation
 - Color keying techniques
 - Layered rendering
@@ -75,7 +78,7 @@ To build and run these tutorials, you'll need:
 Each tutorial directory contains a `build.bat` script for easy compilation:
 
 ```bash
-cd 01-hello-sdl3
+cd 01-sdl-basics
 ./build.bat
 ```
 
@@ -103,7 +106,6 @@ The `assets/` directory contains original and free-licensed media files created 
 - `03img.png` - Original default texture for tutorial 03
 - `03up.png`, `03down.png`, `03left.png`, `03right.png` - Original directional arrow sprites for keyboard input
 - `04background0.png` - Original background layer 0 for tutorial 04
-- `04background1.png` - Original background layer 1 for tutorial 04  
 - `04sprite.png` - Original sprite with transparent areas for color keying tutorial
 
 **All graphical assets in this project are either original creations or sourced from free-licensed resources. No copyrighted material from external tutorials has been included.**
@@ -112,7 +114,7 @@ The `assets/` directory contains original and free-licensed media files created 
 ## Getting Started
 
 1. **Clone this repository**
-2. **Navigate to the first tutorial**: `cd 01-hello-sdl3`
+2. **Navigate to the first tutorial**: `cd 01-sdl-basics`
 3. **Read the tutorial README**: Each directory contains detailed explanations
 4. **Build and run**: Use the provided build scripts
 5. **Experiment**: Modify the code to understand the concepts better

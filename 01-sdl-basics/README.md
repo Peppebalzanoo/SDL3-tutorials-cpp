@@ -1,4 +1,4 @@
-# SDL3 Tutorial: Hello SDL3
+# SDL3 Tutorial: SDL Basics
 
 A basic SDL3 application that demonstrates fundamental graphics programming concepts including window creation, surface manipulation, image loading, and event handling.
 
@@ -28,7 +28,7 @@ This project creates a simple SDL3 application that:
 ## Project Structure
 
 ```
-01-hello-sdl3/
+01-sdl-basics/
 ├── 01-main.cpp        # Main application source code
 ├── build.bat          # Build script for Windows
 └── README.md          # This file

@@ -1,4 +1,4 @@
-# SDL3 Tutorial: Textures and Extension Libraries
+# SDL3 Tutorial: SDL Textures and Extension Libraries
 
 ## Overview
 
@@ -24,7 +24,7 @@ This project demonstrates how to work with textures and extension libraries in S
 ## File Structure
 
 ```
-02-textures-and-extension-libraries/
+02-sdl-textures/
 ├── 02-main.cpp          # Main application file
 ├── MTexture.hpp         # Custom texture class header
 ├── MTexture.cpp         # Custom texture class implementation
@@ -34,7 +34,7 @@ This project demonstrates how to work with textures and extension libraries in S
 ../                      # Parent directory contains:
 ├── main.exe             # Compiled executable (shared across tutorials)
 ├── SDL3.dll             # SDL3 runtime library
-└── SDL3_image.dll       # SDL3_image runtime library
+└── SDL3_image.dll       # SDL3_image runtime
 ```
 
 ## Assets

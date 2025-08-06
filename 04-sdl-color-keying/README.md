@@ -1,4 +1,4 @@
-# SDL3 Tutorial 04: Color Keying
+# SDL3 Tutorial 04: SDL Color Keying
 
 ## Overview
 
@@ -32,7 +32,7 @@ The custom `MTexture` class now includes:
 ## File Structure
 
 ```
-04-color-keying/
+04-sdl-color-keying/
 ├── 04-main.cpp          # Main program file
 ├── MTexture.hpp         # Custom texture class header
 ├── MTexture.cpp         # Custom texture class implementation (with color keying)
