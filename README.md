@@ -108,15 +108,6 @@ The `assets/` directory contains original and free-licensed media files created 
 
 **All graphical assets in this project are either original creations or sourced from free-licensed resources. No copyrighted material from external tutorials has been included.**
 
-## License and Attribution
-
-This project represents my personal learning implementation of SDL3 concepts:
-
-- **Implementation**: Original code and interpretation by Giuseppe
-- **Assets**: Original creations and free-licensed resources
-- **Learning Reference**: Concepts studied from various SDL3 educational resources
-
-**No copyrighted material, source code, or assets from Lazy Foo' Productions or other tutorial sources have been redistributed in this repository.**
 
 ## Getting Started
 
