@@ -134,7 +134,7 @@ This repository represents my personal learning journey with SDL3. If you find t
 
 SDL3 and SDL3_image are © the SDL development team and licensed under the zlib license.  
 These libraries are included in the `lib/` directory for development convenience.  
-A copy of the license is provided in the `COPYING.txt` file as required.
+See the included `LICENSE.txt` file in the lib/SDL3-3.2.18/ and lib/SDL3_image-3.2.4/ directories for details.
 
 ## Learning Reference
 
