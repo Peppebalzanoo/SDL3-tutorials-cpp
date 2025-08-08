@@ -18,6 +18,7 @@ SDL3 Project/
 ├── 02-sdl-textures/                   # Working with textures and SDL3_image
 ├── 03-sdl-event-handling/             # Keyboard input handling
 ├── 04-sdl-color-keying/               # Transparency and color keying
+├── 05-sdl-clipping-and-stretching/    # Texture clipping and stretching techniques
 ├── assets/                            # Original and free-licensed media files
 │   ├── 01hello-world.bmp              # Original bitmap for tutorial 01
 │   ├── 02img.png                      # Original texture for tutorial 02
@@ -27,7 +28,9 @@ SDL3 Project/
 │   ├── 03left.png                     
 │   ├── 03right.png                    
 │   ├── 04background0.png              # Original background image
-│   └── 04sprite.png                   # Original sprite with transparency
+│   ├── 04background1.png              # Original background layer 1
+│   ├── 04sprite.png                   # Original sprite with transparency
+│   └── 05dots.png                     # Original sprite sheet for clipping tutorial
 ├── lib/                               # SDL3 and SDL3_image libraries
 │   ├── SDL3-3.2.18/                   # SDL3 development libraries
 │   └── SDL3_image-3.2.4/              # SDL3_image extension libraries
@@ -62,6 +65,12 @@ SDL3 Project/
 - Layered rendering
 - Sprite composition
 
+### Tutorial 05: SDL Clipping and Stretching
+- Texture clipping using SDL_FRect
+- Sprite sheet extraction
+- Texture stretching and scaling
+- Multiple rendering modes
+
 ## Prerequisites
 
 To build and run these tutorials, you'll need:
@@ -93,6 +102,7 @@ These tutorials are designed to be completed in order:
 2. **Progress through Tutorial 02** to learn about textures and extensions
 3. **Continue with Tutorial 03** for input handling
 4. **Complete Tutorial 04** for advanced graphics techniques
+5. **Finish with Tutorial 05** for sprite sheet manipulation and scaling
 
 Each tutorial builds upon concepts from previous ones, creating a solid foundation for SDL3 development.
 
@@ -104,7 +114,9 @@ The `assets/` directory contains original and free-licensed media files created 
 - `03img.png` - Original default texture for tutorial 03
 - `03up.png`, `03down.png`, `03left.png`, `03right.png` - Original directional arrow sprites for keyboard input
 - `04background0.png` - Original background layer 0 for tutorial 04
+- `04background1.png` - Original background layer 1 for tutorial 04
 - `04sprite.png` - Original sprite with transparent areas for color keying tutorial
+- `05dots.png` - Original sprite sheet with multiple colored dots for clipping tutorial
 
 **All graphical assets in this project are either original creations or sourced from free-licensed resources. No copyrighted material from external tutorials has been included.**
 
