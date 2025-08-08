@@ -1,7 +1,6 @@
 .vscode/ 
 *.exe
-lib/SDL3-2.3.4/*
-lib/SDL3_image-3.2.18/*
+lib/*
 
 
 
