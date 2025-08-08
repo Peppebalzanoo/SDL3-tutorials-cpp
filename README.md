@@ -8,7 +8,7 @@ This repository contains a collection of SDL3 tutorials that serve as my persona
 
 ## About SDL3
 
-SDL3 is a cross-platform development library designed to provide low level access to audio, keyboard, mouse, joystick, and graphics hardware via OpenGL and Direct3D. It is used by video playbook software, emulators, and popular games including Valve's award-winning catalog.
+[SDL3](https://github.com/libsdl-org/SDL) is a cross-platform development library designed to provide low level access to audio, keyboard, mouse, joystick, and graphics hardware via OpenGL and Direct3D. It is used by video playbook software, emulators, and popular games including Valve's award-winning catalog.
 
 ## Development Environment
 
@@ -60,7 +60,7 @@ SDL3 Project/
 - Resource cleanup
 
 ### Tutorial 02: SDL Textures ✅
-- Introduction to SDL3_image
+- Introduction to [SDL3_image](https://github.com/libsdl-org/SDL_image)
 - Loading PNG images
 - Working with textures vs surfaces
 - Renderer-based graphics
@@ -105,8 +105,20 @@ To build and run these tutorials, you'll need:
 - **Operating System**: Windows
 - **IDE**: Visual Studio Code (recommended)
 - **C++ Compiler**: MinGW-w64 (GCC for Windows)
-- **SDL3 Development Libraries**: Included in the `lib/` directory
-- **SDL3_image Extension**: For PNG/JPG support
+- **SDL3 Development Libraries**: Download from [SDL3 Releases](https://github.com/libsdl-org/SDL/releases) and place in `lib/SDL3-3.2.18/`
+- **SDL3_image Extension**: Download from [SDL3_image Releases](https://github.com/libsdl-org/SDL_image/releases) and place in `lib/SDL3_image-3.2.4/` for PNG/JPG support
+
+### Setting Up SDL3 Libraries
+
+1. **Download SDL3 Development Libraries**:
+   - Visit [SDL3 Releases](https://github.com/libsdl-org/SDL/releases)
+   - Download the MinGW development libraries for Windows
+   - Extract to `lib/SDL3-3.2.18/`
+
+2. **Download SDL3_image Extension**:
+   - Visit [SDL3_image Releases](https://github.com/libsdl-org/SDL_image/releases)
+   - Download the MinGW development libraries for Windows
+   - Extract to `lib/SDL3_image-3.2.4/`
 
 ### Setting Up MinGW-w64
 If you don't have MinGW-w64 installed:
@@ -161,17 +173,21 @@ The `assets/` directory contains original and free-licensed media files created 
 ## Getting Started
 
 1. **Clone this repository**
-2. **Open in Visual Studio Code**: `code .`
-3. **Ensure MinGW-w64 is installed** and in your PATH
-4. **Navigate to the first tutorial**: `cd 01-sdl-basics`
-5. **Read the tutorial README**: Each directory contains detailed explanations
-6. **Build and run**: Use the provided build scripts
-7. **Experiment**: Modify the code to understand the concepts better
+2. **Download and setup SDL3 libraries** (see Prerequisites section)
+3. **Open in Visual Studio Code**: `code .`
+4. **Ensure MinGW-w64 is installed** and in your PATH
+5. **Navigate to the first tutorial**: `cd 01-sdl-basics`
+6. **Read the tutorial README**: Each directory contains detailed explanations
+7. **Build and run**: Use the provided build scripts
+8. **Experiment**: Modify the code to understand the concepts better
 
 ## Additional Resources
 
 - **Official SDL3 Documentation**: [SDL3 Wiki](https://wiki.libsdl.org/SDL3/)
-- **SDL3 GitHub**: [SDL3 Source Code](https://github.com/libsdl-org/SDL)
+- **SDL3 GitHub Repository**: [libsdl-org/SDL](https://github.com/libsdl-org/SDL)
+- **SDL3_image GitHub Repository**: [libsdl-org/SDL_image](https://github.com/libsdl-org/SDL_image)
+- **SDL3 Release Downloads**: [SDL3 Releases](https://github.com/libsdl-org/SDL/releases)
+- **SDL3_image Release Downloads**: [SDL3_image Releases](https://github.com/libsdl-org/SDL_image/releases)
 - **MinGW-w64**: [Official Website](https://www.mingw-w64.org/)
 - **Visual Studio Code**: [C++ Development Guide](https://code.visualstudio.com/docs/languages/cpp)
 
@@ -184,9 +200,11 @@ This repository represents my personal learning journey with SDL3 in a Windows +
 
 ## Third-Party Licenses
 
-SDL3 and SDL3_image are © the SDL development team and licensed under the zlib license.  
-These libraries are included in the `lib/` directory for development convenience.  
-See the included `LICENSE.txt` file in the lib/SDL3-3.2.18/ and lib/SDL3_image-3.2.4/ directories for details.
+[SDL3](https://github.com/libsdl-org/SDL) and [SDL3_image](https://github.com/libsdl-org/SDL_image) are © the SDL development team and licensed under the zlib license.
+
+**Note**: SDL3 libraries are not included in this repository due to their size. You need to download them separately from the official releases:
+- **SDL3**: [Download from SDL3 Releases](https://github.com/libsdl-org/SDL/releases)
+- **SDL3_image**: [Download from SDL3_image Releases](https://github.com/libsdl-org/SDL_image/releases)
 
 These libraries are provided for educational and development purposes only. This repository does not claim ownership of SDL3 or SDL3_image.
 
