@@ -1,4 +1,4 @@
-#include "MTexture.hpp"
+#include "MTexture04.hpp"
 #include <iostream>
 
 // Constants for screen dimensions and window title
@@ -55,8 +55,8 @@ void cleanup(SDL_Window *&pWindow, SDL_Renderer *&pRenderer, MTexture *bg_textur
     bg_texture = nullptr;
 }
 
-// Function to load media resources (images, sounds, etc.)
-bool loadMedia(MTexture &bg_texture, MTexture &foo_texture, SDL_Renderer *&pRenderer, bool &remove_background_from_sprite)
+// Function to check media availability (textures, sounds, etc.)
+bool checkMediaAvailability(MTexture &bg_texture, MTexture &foo_texture, SDL_Renderer *&pRenderer, bool &remove_background_from_sprite)
 {
     bool success{true};
 
@@ -132,10 +132,10 @@ int main()
                 }
 
                 // Set the texture based on the key pressed
-                if (!loadMedia(bg_texture, foo_texture, pRenderer, remove_background_from_sprite))
+                if (!checkMediaAvailability(bg_texture, foo_texture, pRenderer, remove_background_from_sprite))
                 {
-                    exit_code = 2; // Exit if media loading fails
-                    SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "Media loading failed.\n");
+                    exit_code = 2; // Exit if media availability check fails
+                    SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "Media availability check failed.\n");
                 }
 
                 // Set the default background color to white (inline color setting)

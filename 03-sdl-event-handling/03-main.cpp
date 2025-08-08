@@ -1,4 +1,4 @@
-#include "MTexture.hpp"
+#include "MTexture03.hpp"
 #include <iostream>
 
 
@@ -55,8 +55,8 @@ void cleanup(SDL_Window *&pWindow, SDL_Renderer *&pRenderer, MTexture *texture)
     texture = nullptr;
 }
 
-// Function to load media resources (images, sounds, etc.)
-bool loadMedia(MTexture &texture, SDL_Renderer *&pRenderer, SDL_Keycode &key_code)
+// Function to check media availability (textures, sounds, etc.)
+bool checkMediaAvailability(MTexture &texture, SDL_Renderer *&pRenderer, SDL_Keycode &key_code)
 {
     bool success{true};
 
@@ -149,10 +149,10 @@ int main()
                     SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "Key pressed: %s\n", SDL_GetKeyName(event.key.key));
 
                     // Set the texture based on the key pressed
-                    if (!loadMedia(texture, pRenderer, event.key.key))
+                    if (!checkMediaAvailability(texture, pRenderer, event.key.key))
                     {
-                        exit_code = 2; // Exit if media loading fails
-                        SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "Media loading failed.\n");
+                        exit_code = 2; // Exit if media availability check fails
+                        SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "Media availability check failed.\n");
                     }
 
                     // Set the default background color to white

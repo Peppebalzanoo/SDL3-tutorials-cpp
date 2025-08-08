@@ -1,5 +1,5 @@
 #include <iostream>
-#include "MTexture.hpp"
+#include "MTexture02.hpp"
 
 // Constants for screen dimensions and window title
 constexpr int SCREEN_WIDTH = {640};
@@ -55,8 +55,8 @@ void cleanup(SDL_Window *&window, SDL_Renderer *&renderer, MTexture *texture)
     texture = nullptr;
 }
 
-// Function to load media resources (images, sounds, etc.)
-bool loadMedia(MTexture &texture, SDL_Renderer *&renderer)
+// Function to check media availability (textures, sounds, etc.)
+bool checkMediaAvailability(MTexture &texture, SDL_Renderer *&renderer)
 {
     bool success{true};
 
@@ -98,10 +98,10 @@ int main()
     }
 
     // Load media resources
-    if (!loadMedia(texture, pRenderer))
+    if (!checkMediaAvailability(texture, pRenderer))
     {
-        exit_code = 2; // Exit if media loading fails
-        SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "Media loading failed.\n");
+        exit_code = 2; // Exit if media availability check fails
+        SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "Media availability check failed.\n");
     }
 
     // Create an event structure to handle events

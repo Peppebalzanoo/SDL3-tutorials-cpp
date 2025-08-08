@@ -37,8 +37,8 @@ The program responds to the following keys:
 ```
 03-sdl-event-handling/
 ├── 03-main.cpp          # Main program file
-├── MTexture.hpp         # Custom texture class header
-├── MTexture.cpp         # Custom texture class implementation
+├── MTexture03.hpp         # Custom texture class header
+├── MTexture03.cpp         # Custom texture class implementation
 ├── build.bat            # Build script
 └── README.md            # This file
 
@@ -109,7 +109,7 @@ g++ -I../lib/SDL3-3.2.18/x86_64-w64-mingw32/include \
     -I../lib/SDL3_image-3.2.4/x86_64-w64-mingw32/include \
     -L../lib/SDL3-3.2.18/x86_64-w64-mingw32/lib \
     -L../lib/SDL3_image-3.2.4/x86_64-w64-mingw32/lib \
-    -o ../main.exe 03-main.cpp MTexture.cpp \
+    -o ../main.exe 03-main.cpp MTexture03.cpp \
     -lSDL3 -lSDL3_image
 ```
 

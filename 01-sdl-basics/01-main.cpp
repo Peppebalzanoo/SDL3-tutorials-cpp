@@ -66,13 +66,13 @@ void cleanup(SDL_Window *&window, SDL_Surface *&screen_surface, SDL_Surface *&im
     image_surface = nullptr;
 }
 
-// Function to load media resources (images, sounds, etc.)
-bool loadMedia(SDL_Surface *&image_surface)
+// Function to check media availability (textures, sounds, etc.)
+bool checkMediaAvailability(SDL_Surface *&image_surface)
 {
     bool success{true};
 
     // Load media resources images, sounds, etc.
-    const char *image_path = "../assets/hello-world.bmp";
+    const char *image_path = "../assets/01hello-world.bmp";
 
     // Load the image into a surface
     if (image_surface = SDL_LoadBMP(image_path); image_surface == nullptr)
@@ -110,10 +110,10 @@ int main()
     }
 
     // Load media resources
-    if (!loadMedia(pImageSurface))
+    if (!checkMediaAvailability(pImageSurface))
     {
-        exit_code = 2; // Exit if media loading fails
-        SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "Media loading failed.\n");
+        exit_code = 2; // Exit if media availability check fails
+        SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "Media availability check failed.\n");
     }
 
     // Create an event structure to handle events

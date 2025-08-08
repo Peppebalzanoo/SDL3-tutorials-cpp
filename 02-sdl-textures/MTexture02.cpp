@@ -1,4 +1,4 @@
-#include "MTexture.hpp"
+#include "MTexture02.hpp"
 
 // TextureManager's destructor cleans up the texture resource
 MTexture::~MTexture() { clear(); }

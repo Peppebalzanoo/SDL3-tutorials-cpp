@@ -34,8 +34,8 @@ The custom `MTexture` class now includes:
 ```
 04-sdl-color-keying/
 ├── 04-main.cpp          # Main program file
-├── MTexture.hpp         # Custom texture class header
-├── MTexture.cpp         # Custom texture class implementation (with color keying)
+├── MTexture04.hpp         # Custom texture class header
+├── MTexture04.cpp         # Custom texture class implementation (with color keying)
 ├── build.bat            # Build script
 └── README.md            # This file
 
@@ -123,7 +123,7 @@ g++ -I../lib/SDL3-3.2.18/x86_64-w64-mingw32/include \
     -I../lib/SDL3_image-3.2.4/x86_64-w64-mingw32/include \
     -L../lib/SDL3-3.2.18/x86_64-w64-mingw32/lib \
     -L../lib/SDL3_image-3.2.4/x86_64-w64-mingw32/lib \
-    -o ../main.exe 04-main.cpp MTexture.cpp \
+    -o ../main.exe 04-main.cpp MTexture04.cpp \
     -lSDL3 -lSDL3_image
 ```
 

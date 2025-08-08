@@ -26,8 +26,8 @@ This project demonstrates how to work with textures and extension libraries in S
 ```
 02-sdl-textures/
 ├── 02-main.cpp          # Main application file
-├── MTexture.hpp         # Custom texture class header
-├── MTexture.cpp         # Custom texture class implementation
+├── MTexture02.hpp         # Custom texture class header
+├── MTexture02.cpp         # Custom texture class implementation
 ├── build.bat            # Build script for Windows
 └── README.md            # This file
 
@@ -101,7 +101,7 @@ g++ -I./lib/SDL3-3.2.18/x86_64-w64-mingw32/include \
     -I./lib/SDL3_image-3.2.4/x86_64-w64-mingw32/include \
     -L./lib/SDL3-3.2.18/x86_64-w64-mingw32/lib \
     -L./lib/SDL3_image-3.2.4/x86_64-w64-mingw32/lib \
-    -o main.exe 02-main.cpp MTexture.cpp \
+    -o main.exe 02-main.cpp MTexture02.cpp \
     -lSDL3 -lSDL3_image
 ```
 
