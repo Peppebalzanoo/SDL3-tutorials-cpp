@@ -1,8 +1,6 @@
 .vscode/ 
 *.exe
-lib/*
-
-
-
-
-
+lib/SDL3-3.2.18/*
+lib/SDL3_image-3.2.4/*
+!lib/SDL3-3.2.18/.gitkeep
+!lib/SDL3_image-3.2.4/.gitkeep
